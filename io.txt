@@ -1,0 +1,9 @@
+This code saves the `submission` DataFrame as a CSV file named `submission.csv`.
+
+The `to_csv` method of the `submission` DataFrame is called with two parameters.
+
+The first parameter is the filename for the CSV file to be saved, which is `"submission.csv"` in this case.
+
+The second parameter is `index=None`, which means that the row index labels in the DataFrame will not be saved to the CSV file.
+
+After this code is executed, a CSV file named `submission.csv` will be saved to the current working directory with the predicted probabilities for each class for each sample in the testing data.%
