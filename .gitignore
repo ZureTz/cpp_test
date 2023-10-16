@@ -1,3 +1,11 @@
+tempCodeRunnerFile.cc
+**/tempCodeRunnerFile.cc
+
+# Executables
+*
+!*.*
+!*/
+
 # Prerequisites
 *.d
 
