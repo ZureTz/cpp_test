@@ -8,8 +8,8 @@ using std::cin;
 using std::cout;
 
 int main(int argc, char const *argv[]) {
-  system("git add --all");
-  system("git commit -m \"\\\'test.cc\\\' modified\"");
-  system("git push -u origin master");
+
+  cout << -12 % 10;
+
   return 0;
 }

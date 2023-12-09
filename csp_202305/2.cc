@@ -18,12 +18,13 @@ struct Matrix {
 int main(int argc, char const *argv[]) {
   std::ios::sync_with_stdio(false);
 
+  // 输入矩阵大小
   int n, d;
   cin >> n >> d;
   Matrix Q(n, d), K(d, n), V(n, d);
   std::vector<ll> W(n);
 
-  // input Q, K, V
+  // 分别输入 Q, K, V
   for (auto &col : Q.mat) {
     for (ll &num : col) {
       cin >> num;
@@ -64,22 +65,24 @@ int main(int argc, char const *argv[]) {
   }
 #endif
 
-  // simplified algorithm
+  // 初始化最终的结果
   Matrix WQKT(n, d);
-  // WQKT = W(Q * K(T)) * V
+  // WQKT = W(Q * K^T) * V
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
+      // 此处使用sum储存 W(Q*K^T) 避免使用新的矩阵，从而降低了时间复杂度
       ll sum = 0;
       for (int k = 0; k < d; k++) {
         sum += Q.mat[i][k] * K.mat[k][j];
       }
       sum *= W[i];
-      for (int l = 0; l < d; l++) {
-        WQKT.mat[i][l] += sum * V.mat[j][l];
+      for (int k = 0; k < d; k++) {
+        WQKT.mat[i][k] += sum * V.mat[j][k];
       }
     }
   }
 
+  // 最后输出结果即可
   for (const auto &vect : WQKT.mat) {
     for (const ll num : vect) {
       (cout << num).put(' ');
