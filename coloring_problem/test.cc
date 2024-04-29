@@ -58,7 +58,7 @@ bool isBoxSatisfied() {
 void assign(long long &count, const int index) {
   if (index > 0b111) {
     count += (isBoxSatisfied() ? 1 : 0);
-    std::cout << count << '\r';
+    // std::cout << count << '\r';
     return;
   }
 
